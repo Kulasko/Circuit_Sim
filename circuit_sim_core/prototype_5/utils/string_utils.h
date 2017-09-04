@@ -10,7 +10,7 @@ using std::vector;
 namespace arschitek_utils
 {
 
-vector<string> split(string const &raw, char const *delimiter)
+vector<string> split(string const &raw, char const *delimiter = " ")
 {
 	vector<string> retval;
 	size_t part_begin = 0;

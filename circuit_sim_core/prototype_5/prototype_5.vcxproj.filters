@@ -41,5 +41,8 @@
     <ClInclude Include="utils\indexed_vector.h">
       <Filter>extern\utils</Filter>
     </ClInclude>
+    <ClInclude Include="cli_controller_circuit_sim.h">
+      <Filter>source files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -143,6 +143,7 @@
     <ClCompile Include="utils\cli_controller_base.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="cli_controller_circuit_sim.h" />
     <ClInclude Include="utils\cli_controller_base.h" />
     <ClInclude Include="utils\indexed_vector.h" />
     <ClInclude Include="utils\serialization_old.h" />

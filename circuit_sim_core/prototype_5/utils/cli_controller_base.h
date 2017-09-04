@@ -1,12 +1,16 @@
 #ifndef __CIRCUIT_SIM_UTILS_CLI_CONTROLLER_BASE_H__
 #define __CIRCUIT_SIM_UTILS_CLI_CONTROLLER_BASE_H__
 
+#include <unordered_set>
 #include <string>
+#include <thread>
 #include <vector>
 
 #include "indexed_vector.h"
 
+using std::unordered_set;
 using std::string;
+using std::thread;
 using std::vector;
 using arschitek_utils::IndexedVector;
 
@@ -18,7 +22,9 @@ class CliControllerBase
 public:
 	CliControllerBase();
 
-	string print_help(vector<string> &args);
+	virtual void Run(string start);
+
+	string PrintHelp(vector<string> &args);
 
 protected:
 	typedef string(CliControllerBase::*Action) (vector<string> &args);
@@ -31,12 +37,12 @@ protected:
 
 	virtual void Build() = 0;
 
+	bool running_;
 
-	string curr_status;
-	vector<string> curr_data;
+	string curr_status_;
 
 	IndexedVector<string, CliAction> actions_;
-	IndexedVector<string, vector<string>> allowedActions;
+	IndexedVector<string, unordered_set<string>> allowedActions_;
 };
 
 } // Namespace

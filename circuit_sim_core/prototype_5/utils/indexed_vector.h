@@ -14,23 +14,33 @@ template <typename T1, typename T2>
 class IndexedVector
 {
 public:
-	T2 at(size_t index)
+	T2 &at(size_t index)
 	{
 		return this->data_[index];
 	}
-	T2 at(T1 index)
+	T2 &at(T1 index)
 	{
 		if (this->indices_dirty_)
 		{
-			this->RebuildIndices();
+			this->RebuildIndices_();
 		}
 		return this->data_[this->index_from_custom_[index]];
 	}
-	T2 operator [](size_t index)
+
+	bool Exists(T1 index)
+	{
+		return index_from_custom_.count(index);
+	}
+	T1 Index(size_t numerical_index)
+	{
+		return indices_[numerical_index];
+	}
+
+	T2 &operator [](size_t index)
 	{
 		return this->at(index);
 	}
-	T2 operator [](T1 index)
+	T2 &operator [](T1 index)
 	{
 		return this->at(index);
 	}
@@ -70,9 +80,9 @@ private:
 	void RebuildIndices_()
 	{
 		this->index_from_custom_.clear();
-		for (size_t i = 0; i < this->indices.size(); i++)
+		for (size_t i = 0; i < this->indices_.size(); i++)
 		{
-			this->index_from_custom_[this->indices_[i]] = this->data_[i];
+			this->index_from_custom_[this->indices_[i]] = i;
 		}
 		this->indices_dirty_ = false;
 	}

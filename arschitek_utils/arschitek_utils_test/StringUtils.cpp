@@ -9,7 +9,7 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace arschitek_utils_test
 {		
-	TEST_CLASS(StringUtils)
+	TEST_CLASS(StringUtilsTest)
 	{
 	public:
 		
@@ -38,7 +38,20 @@ namespace arschitek_utils_test
 			Assert::AreEqual(string("Leerzeichen"), test_out[5]);
 			Assert::AreEqual(string("am"), test_out[6]);
 			Assert::AreEqual(string("Ende."), test_out[7]);
+		}
 
+		TEST_METHOD(CustomDelimiter)
+		{
+			string testdata = "Dieser/Test/verwendet/einen/Schraegstrich/als/Trennzeichen.";
+			vector<string> test_out = split(testdata, "/");
+			Assert::AreEqual(static_cast<size_t>(7), test_out.size());
+			Assert::AreEqual(string("Dieser"), test_out[0]);
+			Assert::AreEqual(string("Test"), test_out[1]);
+			Assert::AreEqual(string("verwendet"), test_out[2]);
+			Assert::AreEqual(string("einen"), test_out[3]);
+			Assert::AreEqual(string("Schraegstrich"), test_out[4]);
+			Assert::AreEqual(string("als"), test_out[5]);
+			Assert::AreEqual(string("Trennzeichen."), test_out[6]);
 		}
 	};
 }

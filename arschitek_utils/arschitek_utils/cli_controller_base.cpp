@@ -69,4 +69,15 @@ string CliControllerBase::PrintHelp(vector<string> &args)
 	return "";
 }
 
+void CliControllerBase::AddAction(string name, CliAction action)
+{
+	this->actions_[name] = action;
+}
+
+void CliControllerBase::AddMenue(string name, unordered_set<string> allowedActions, CliAction action)
+{
+	this->AddAction(name, action);
+	this->allowedActions_[name] = allowedActions;
+}
+
 } // Namespace

@@ -36,6 +36,8 @@ protected:
 	};
 
 	virtual void Build() = 0;
+	void AddAction(string name, CliAction action);
+	void AddMenue(string name, unordered_set<string> allowedActions, CliAction gotoaction);
 
 	bool running_;
 

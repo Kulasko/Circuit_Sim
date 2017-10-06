@@ -16,11 +16,19 @@ class CliControllerCircuitSim : public CliControllerBase
 public:
 	CliControllerCircuitSim() : CliControllerBase()
 	{
-		this->Build();
+		this->AddMenue("test", unordered_set<string>{"main"}, CliAction(string("Das hier ist ein tesmenü."), &CliControllerCircuitSim::GotoTest));
+		this->AddAction("main", CliAction(string("Hauptmenü"), &CliControllerCircuitSim::GotoMain));
 	}
+
 protected:
-	void Build()
+	static string GotoTest(vector<string> &args)
 	{
+		return "test";
+	}
+
+	static string GotoMain(vector<string> &args)
+	{
+		return "main";
 	}
 };
 

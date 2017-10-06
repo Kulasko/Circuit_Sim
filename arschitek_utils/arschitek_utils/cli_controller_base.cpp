@@ -22,7 +22,7 @@ namespace arschitek_utils
 		allowedActions_["main"].insert("help");
 	}
 
-	CliControllerBase::CliAction::CliAction(string &helpdesc, string(CliControllerBase::*action) (vector<string> &args))
+	CliControllerBase::CliAction::CliAction(string &helpdesc, string(*action) (vector<string> &args))
 	{
 		this->helpdesc = helpdesc;
 		this->action = action;
@@ -51,8 +51,8 @@ namespace arschitek_utils
 			}
 			else if (input_args[0] != "" && input_args[0] != "exit")
 			{
-				cout << "Error: found no command \"" << input_args[0] << "\" in this context." << endl
-					 << "Type \"help\" for a list of available commands." << endl;
+				cout <<  endl << "Error: found no command \"" << input_args[0] << "\" in this context." << endl
+					 << "Type \"help\" for a list of available commands." << endl << endl;
 			}
 		}
 		running_ = false;
@@ -65,7 +65,7 @@ string CliControllerBase::PrintHelp(vector<string> &args)
 	{
 		cout << this->actions_.Index(i) << " - " << this->actions_[i].helpdesc << endl;
 	}
-	cout << endl;
+	cout << "exit - exits the program" << endl << endl;
 	return "";
 }
 

@@ -24,18 +24,19 @@ public:
 
 	virtual void Run(string start);
 
-	string PrintHelp(vector<string> &args);
+	static string PrintHelp(vector<string> &args);
 
 protected:
-	typedef string(CliControllerBase::*Action) (vector<string> &args);
+	typedef string(*Action) (vector<string> &args);
 	struct CliAction {
 		string helpdesc;
 		Action action;
 
-		CliAction(string &helpdesc, string(CliControllerBase::*action) (vector<string> &args));
+		CliAction(string &helpdesc, string(*action) (vector<string> &args));
 	};
 
-	virtual void Build() = 0;
+	void AddAction(string name, CliAction action);
+	void AddMenue(string name, unordered_set<string> allowedActions, CliAction gotoaction);
 
 	bool running_;
 

@@ -14,10 +14,12 @@ template <typename T1, typename T2>
 class IndexedVector
 {
 public:
+	// numerical index
 	T2 &at(size_t index)
 	{
 		return this->data_[index];
 	}
+	// key index
 	T2 &at(T1 index)
 	{
 		if (this->indices_dirty_)
@@ -29,13 +31,18 @@ public:
 
 	bool Exists(T1 index)
 	{
+		if (this->indices_dirty_)
+		{
+			this->RebuildIndices_();
+		}
 		return index_from_custom_.count(index);
 	}
+	// key at given numerical index
 	T1 Index(size_t numerical_index)
 	{
 		return indices_[numerical_index];
 	}
-
+	// operator-extensions
 	T2 &operator [](size_t index)
 	{
 		return this->at(index);
@@ -46,17 +53,18 @@ public:
 	}
 	size_t size()
 	{
-		return this->indices_.size();
+		return this->data_.size();
 	}
 
-
+	// dirty indices for lazy index linking
 	void Add(T2 data, T1 index)
 	{
 		this->data_.push_back(data);
 		this->indices_.push_back(index);
 		this->indices_dirty_ = true;
 	}
-	void Erase(size_t index)
+
+	void Erase(T1 index)
 	{
 		if (this->indices_dirty_)
 		{
@@ -64,7 +72,8 @@ public:
 		}
 		this->Erase(this->index_from_custom_[index]);
 	}
-	void Erase(T1 index)
+	// dirty indices for lazy index linking
+	void Erase(size_t index)
 	{
 		this->data_.erase(this->data_.begin() + index);
 		this->indices_.erase(this->indices_.begin() + index);

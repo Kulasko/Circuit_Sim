@@ -30,4 +30,8 @@
 *.exe
 *.out
 *.app
-circuit_sim_core/include/cli_controller_base.cpp
+
+# screw those nasty VS folders!
+*/.vs/
+**/Debug
+**/x64

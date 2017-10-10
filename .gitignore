@@ -30,3 +30,4 @@
 *.exe
 *.out
 *.app
+circuit_sim_core/include/cli_controller_base.cpp

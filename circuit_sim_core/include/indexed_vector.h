@@ -1,5 +1,5 @@
-#ifndef __CIRCUIT_SIM_UTILS_INDEXED_VECTOR_H__
-#define __CIRCUIT_SIM_UTILS_INDEXED_VECTOR_H__
+#ifndef __ARSCHITEK_UTILS_INDEXED_VECTOR_H__
+#define __ARSCHITEK_UTILS_INDEXED_VECTOR_H__
 
 #include <unordered_map>
 #include <vector>
@@ -15,12 +15,12 @@ class IndexedVector
 {
 public:
 	// numerical index
-	T2 &at(size_t index)
+	T2 &at(const size_t &index)
 	{
 		return this->data_[index];
 	}
 	// key index
-	T2 &at(T1 index)
+	T2 &at(const T1 &index)
 	{
 		if (this->indices_dirty_)
 		{
@@ -29,7 +29,7 @@ public:
 		return this->data_[this->index_from_custom_[index]];
 	}
 
-	bool Exists(T1 index)
+	bool Exists(const T1 &index)
 	{
 		if (this->indices_dirty_)
 		{
@@ -38,16 +38,16 @@ public:
 		return index_from_custom_.count(index);
 	}
 	// key at given numerical index
-	T1 Index(size_t numerical_index)
+	T1 Index(const size_t &numerical_index)
 	{
 		return indices_[numerical_index];
 	}
 	// operator-extensions
-	T2 &operator [](size_t index)
+	T2 &operator [](const size_t &index)
 	{
 		return this->at(index);
 	}
-	T2 &operator [](T1 index)
+	T2 &operator [](const T1 &index)
 	{
 		return this->at(index);
 	}
@@ -57,14 +57,14 @@ public:
 	}
 
 	// dirty indices for lazy index linking
-	void Add(T2 data, T1 index)
+	void Add(const T2 &data, const T1 &index)
 	{
 		this->data_.push_back(data);
 		this->indices_.push_back(index);
 		this->indices_dirty_ = true;
 	}
 
-	void Erase(T1 index)
+	void Erase(const T1 &index)
 	{
 		if (this->indices_dirty_)
 		{
@@ -73,7 +73,7 @@ public:
 		this->Erase(this->index_from_custom_[index]);
 	}
 	// dirty indices for lazy index linking
-	void Erase(size_t index)
+	void Erase(const size_t &index)
 	{
 		this->data_.erase(this->data_.begin() + index);
 		this->indices_.erase(this->indices_.begin() + index);

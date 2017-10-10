@@ -1,5 +1,5 @@
-#ifndef _CIRCUIT_SIM_SERIALIZATION_H_
-#define _CIRCUIT_SIM_SERIALIZATION_H_
+#ifndef _ARSCHITEK_SERIALIZATION_H_
+#define _ARSCHITEK_SERIALIZATION_H_
 
 #include <iostream>
 #include <sstream>
@@ -24,13 +24,13 @@ public:
 		return outpos_;
 	}
 
-	void append(string newData)
+	void append(const string &newData)
 	{
 		size_t length = newData.size();
 		append_flat(length);
 		_append(newData.c_str(), length);
 	}
-	void append(SerializedString newdata_)
+	void append(const SerializedString &newdata_)
 	{
 		size_t length = newdata_.data_.size() - newdata_.outpos_;
 		append_flat(length);
@@ -45,7 +45,7 @@ public:
 	}
 
 	template<typename T>
-	void append_flat(T newdata_)
+	void append_flat(const T &newdata_)
 	{
 		_append((char*)&newdata_, sizeof(T));
 	}

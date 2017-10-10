@@ -1,5 +1,5 @@
-#ifndef __CIRCUIT_SIM_UTILS_STRING_UTILS_H__
-#define __CIRCUIT_SIM_UTILS_STRING_UTILS_H__
+#ifndef __ARSCHITEK_UTILS_STRING_UTILS_H__
+#define __ARSCHITEK_UTILS_STRING_UTILS_H__
 
 #include <string>
 #include <vector>
@@ -10,7 +10,7 @@ using std::vector;
 namespace arschitek_utils
 {
 
-vector<string> split(string const &raw, char const *delimiter = " ")
+vector<string> split(const string &raw, const char *delimiter = " ")
 {
 	vector<string> retval;
 	size_t part_begin = 0;

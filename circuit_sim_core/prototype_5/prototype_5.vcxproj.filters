@@ -13,34 +13,13 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="extern">
-      <UniqueIdentifier>{4b2f2b9c-fcd6-4981-a221-f82e90aca992}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="extern\utils">
-      <UniqueIdentifier>{84f7e05f-8297-4ca4-8851-237f27cd8286}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Program.cpp">
       <Filter>source files</Filter>
     </ClCompile>
-    <ClCompile Include="utils\cli_controller_base.cpp">
-      <Filter>extern\utils</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="utils\serialization_old.h">
-      <Filter>extern\utils</Filter>
-    </ClInclude>
-    <ClInclude Include="utils\cli_controller_base.h">
-      <Filter>extern\utils</Filter>
-    </ClInclude>
-    <ClInclude Include="utils\string_utils.h">
-      <Filter>extern\utils</Filter>
-    </ClInclude>
-    <ClInclude Include="utils\indexed_vector.h">
-      <Filter>extern\utils</Filter>
-    </ClInclude>
     <ClInclude Include="cli_controller_circuit_sim.h">
       <Filter>source files</Filter>
     </ClInclude>

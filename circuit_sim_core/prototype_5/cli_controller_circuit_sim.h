@@ -3,7 +3,7 @@
 
 #include <unordered_set>
 
-#include "utils\cli_controller_base.h"
+#include <cli_controller_base.h>
 
 using std::unordered_set;
 using arschitek_utils::CliControllerBase;
@@ -16,8 +16,8 @@ class CliControllerCircuitSim : public CliControllerBase
 public:
 	CliControllerCircuitSim() : CliControllerBase()
 	{
-		this->AddMenue("test", unordered_set<string>{"main"}, CliAction(string("Das hier ist ein tesmenü."), &CliControllerCircuitSim::GotoTest));
-		this->AddAction("main", CliAction(string("Hauptmenü"), &CliControllerCircuitSim::GotoMain));
+		//this->AddMenue("test", unordered_set<string>{"main"}, CliAction(string("Das hier ist ein tesmenü."), &CliControllerCircuitSim::GotoTest));
+		//this->AddAction("main", CliAction(string("Hauptmenü"), &CliControllerCircuitSim::GotoMain));
 	}
 
 protected:

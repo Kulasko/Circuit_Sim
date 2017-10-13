@@ -147,10 +147,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="cli_controller_base.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="cli_controller_base.h" />
     <ClInclude Include="indexed_vector.h" />
     <ClInclude Include="serialization.h" />
     <ClInclude Include="string_utils.h" />

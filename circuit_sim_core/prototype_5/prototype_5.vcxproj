@@ -144,10 +144,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="cli_command_goto_main.cpp" />
+    <ClCompile Include="cli_command_print_commands.cpp" />
     <ClCompile Include="Program.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="cli_controller_circuit_sim.h" />
+    <ClInclude Include="cli_command_goto_main.h" />
+    <ClInclude Include="cli_command_interface.h" />
+    <ClInclude Include="cli_command_print_commands.h" />
+    <ClInclude Include="cli_state.h" />
+    <ClInclude Include="mvc_controller.h" />
+    <ClInclude Include="mvc_cli_view.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

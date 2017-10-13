@@ -1,12 +1,7 @@
-#include "cli_controller_circuit_sim.h"
-
-using circuit_sim::CliControllerCircuitSim;
+#include "mvc_controller.h"
 
 int main()
 {
-	CliControllerCircuitSim view;
-
-	view.Run("main");
 
 	return 0;
 }

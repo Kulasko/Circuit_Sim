@@ -5,6 +5,7 @@
 #include <vector>
 
 using std::unordered_map;
+using std::size_t;
 using std::vector;
 
 namespace arschitek_utils

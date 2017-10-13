@@ -13,15 +13,45 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{a8fc5737-4821-481a-a62d-44a28baa5c67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Commands">
+      <UniqueIdentifier>{d71a8b62-10a5-4ed4-98dc-f431b01ebe52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ressourcendateien\Commands">
+      <UniqueIdentifier>{2d4a4916-e6d4-43d8-aab5-bdfe56f29562}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Program.cpp">
       <Filter>source files</Filter>
     </ClCompile>
+    <ClCompile Include="cli_command_goto_main.cpp">
+      <Filter>Ressourcendateien\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="cli_command_print_commands.cpp">
+      <Filter>Ressourcendateien\Commands</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="cli_controller_circuit_sim.h">
-      <Filter>source files</Filter>
+    <ClInclude Include="mvc_controller.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="mvc_cli_view.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="cli_state.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="cli_command_interface.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="cli_command_goto_main.h">
+      <Filter>UI\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="cli_command_print_commands.h">
+      <Filter>UI\Commands</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

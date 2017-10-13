@@ -15,14 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="cli_controller_base.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="cli_controller_base.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="indexed_vector.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>

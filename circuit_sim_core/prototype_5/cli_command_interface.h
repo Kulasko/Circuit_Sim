@@ -21,7 +21,7 @@ public:
 
 	CliCommandInterface(const string &helpdesc) : helpdesc(helpdesc) {}
 
-	virtual string execute(const MvcController *controller, const vector<string> &args) = 0;
+	virtual string execute(MvcController * const controller, const vector<string> &args) = 0;
 };
 
 } // Namespace

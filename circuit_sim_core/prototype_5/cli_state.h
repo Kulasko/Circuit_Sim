@@ -17,7 +17,7 @@ namespace circuit_sim
 class CliState
 {
 public:
-	IndexedVector<string, unique_ptr<CliCommandInterface>> actions_;
+	IndexedVector<string, CliCommandInterface*> actions_;
 
 };
 

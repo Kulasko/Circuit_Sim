@@ -13,7 +13,7 @@ class CliCommandGotoMain : CliCommandInterface
 public:
 	CliCommandGotoMain(const string &helpdesc) : CliCommandInterface(helpdesc) {}
 
-	virtual string execute(const MvcController *controller, const vector<string> &args);
+	virtual string execute(MvcController * const controller, const vector<string> &args);
 };
 
 } // Namespace

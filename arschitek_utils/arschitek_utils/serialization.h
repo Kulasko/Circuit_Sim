@@ -14,35 +14,13 @@ namespace arschitek_utils
 class SerializedString
 {
 public:
-	string getdata_()
-	{
-		return data_;
-	}
+	inline string getdata_();
+	inline size_t get_current_position();
 
-	size_t get_current_position()
-	{
-		return outpos_;
-	}
-
-	void append(const string &newData)
-	{
-		size_t length = newData.size();
-		append_flat(length);
-		_append(newData.c_str(), length);
-	}
-	void append(const SerializedString &newdata_)
-	{
-		size_t length = newdata_.data_.size() - newdata_.outpos_;
-		append_flat(length);
-		_append(&newdata_.data_[newdata_.outpos_], length);
-	}
-	void append(istream &stream)
-	{
-		size_t length;
-		stream.read((char*)&length, sizeof(length));
-		data_.resize(data_.size() + length);
-		stream.read(&data_[outpos_], length);
-	}
+	inline void append(const string &newData);
+	inline void append(const SerializedString &newdata_);
+	// special append to cut the shell
+	inline void append(istream &stream);
 
 	template<typename T>
 	void append_flat(const T &newdata_)
@@ -58,22 +36,14 @@ public:
 		return *retval;
 	}
 
-	SerializedString request()
-	{
-		SerializedString retval;
-		size_t length = request<size_t>();
-		retval.data_ = data_.substr(outpos_, length);
-		outpos_ += length;
-		return retval;
-	}
+	// retrieve serializedString that was stored by append(const SerializedString)
+	inline SerializedString request();
 
 private:
 	string data_;
 	size_t outpos_ = 0;
-	void _append(char const *data, size_t size)
-	{
-		data_.append(data, size);
-	}
+
+	inline void append_(char const *data, size_t size);
 };
 
 class serializable
@@ -82,19 +52,8 @@ class serializable
 	virtual void deserialize(SerializedString &data) = 0;
 };
 
-inline ostream& write (ostream &stream, SerializedString &serializeddata_)
-{
-	size_t length = serializeddata_.getdata_().size();
-	stream.write((char*)&length, sizeof(length));
-	stream.write(serializeddata_.getdata_().c_str(), length);
-	return stream;
-}
-
-inline istream& read (istream &stream, SerializedString &serialzeddata_)
-{
-	serialzeddata_.append(stream);
-	return stream;
-}
+inline ostream& write(ostream &stream, SerializedString &serializeddata_);
+inline istream& read(istream &stream, SerializedString &serialzeddata_);
 
 } // Namespace
 

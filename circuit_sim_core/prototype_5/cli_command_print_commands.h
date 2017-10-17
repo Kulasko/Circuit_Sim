@@ -15,7 +15,7 @@ namespace circuit_sim
 	public:
 		CliCommandPrintCommands(const string &helpdesc, CliState *state) : CliCommandInterface(helpdesc), state_(state) {}
 
-		virtual string execute(const MvcController *controller, const vector<string> &args);
+		virtual string execute(MvcController * const controller, const vector<string> &args);
 
 	private:
 		CliState *state_;

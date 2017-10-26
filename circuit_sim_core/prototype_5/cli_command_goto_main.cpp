@@ -3,7 +3,7 @@
 namespace circuit_sim
 {
 
-string CliCommandGotoMain::execute(MvcController * const controller, const vector<string> &args)
+string CliCommandGotoMain::execute(const vector<string> &args)
 {
 	return "main";
 }

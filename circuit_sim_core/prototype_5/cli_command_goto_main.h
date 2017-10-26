@@ -8,12 +8,12 @@ using circuit_sim::CliCommandInterface;
 namespace circuit_sim
 {
 
-class CliCommandGotoMain : CliCommandInterface
+class CliCommandGotoMain : public CliCommandInterface
 {
 public:
 	CliCommandGotoMain(const string &helpdesc) : CliCommandInterface(helpdesc) {}
 
-	virtual string execute(MvcController * const controller, const vector<string> &args);
+	virtual string execute(const vector<string> &args);
 };
 
 } // Namespace

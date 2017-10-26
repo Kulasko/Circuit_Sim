@@ -44,7 +44,7 @@ SerializedString SerializedString::request()
 	return retval;
 }
 
-void SerializedString::append_(char const *data, size_t size)
+void SerializedString::append_(char const *data, const size_t &size)
 {
 	data_.append(data, size);
 }
@@ -54,6 +54,12 @@ inline ostream& write(ostream &stream, SerializedString &serializeddata_)
 	size_t length = serializeddata_.getdata_().size();
 	stream.write((char*)&length, sizeof(length));
 	stream.write(serializeddata_.getdata_().c_str(), length);
+	return stream;
+}
+
+inline istream& read(istream &stream, SerializedString &serialzeddata_)
+{
+	serialzeddata_.append(stream);
 	return stream;
 }
 

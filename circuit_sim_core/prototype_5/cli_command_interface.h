@@ -4,12 +4,8 @@
 #include <string>
 #include <vector>
 
-#include "mvc_controller.h"
-
 using std::string;
 using std::vector;
-
-using circuit_sim::MvcController;
 
 namespace circuit_sim
 {
@@ -21,7 +17,7 @@ public:
 
 	CliCommandInterface(const string &helpdesc) : helpdesc(helpdesc) {}
 
-	virtual string execute(MvcController * const controller, const vector<string> &args) = 0;
+	virtual string execute(const vector<string> &args) = 0;
 };
 
 } // Namespace

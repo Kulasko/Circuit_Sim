@@ -25,7 +25,7 @@ public:
 	template<typename T>
 	void append_flat(const T &newdata_)
 	{
-		_append((char*)&newdata_, sizeof(T));
+		append_(reinterpret_cast<char*>(const_cast<T*>(&newdata_)), sizeof(T));
 	}
 
 	template<class c>
@@ -43,7 +43,7 @@ private:
 	string data_;
 	size_t outpos_ = 0;
 
-	inline void append_(char const *data, size_t size);
+	inline void append_(char const *data, const size_t &size);
 };
 
 class serializable

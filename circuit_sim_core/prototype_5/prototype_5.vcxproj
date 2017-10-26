@@ -146,6 +146,8 @@
   <ItemGroup>
     <ClCompile Include="cli_command_goto_main.cpp" />
     <ClCompile Include="cli_command_print_commands.cpp" />
+    <ClCompile Include="cli_state.cpp" />
+    <ClCompile Include="mvc_cli_view.cpp" />
     <ClCompile Include="Program.cpp" />
   </ItemGroup>
   <ItemGroup>

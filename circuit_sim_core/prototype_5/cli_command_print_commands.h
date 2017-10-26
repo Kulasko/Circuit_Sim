@@ -1,25 +1,23 @@
 #ifndef __CIRCUIT_SIM_CLI_COMMAND_PRINT_COMMANDS_H__
 #define __CIRCUIT_SIM_CLI_COMMAND_PRINT_COMMANDS_H__
 
-#include "cli_command_interface.h"
-#include "cli_state.h"
+// #include "cli_command_interface.h"
+#include "mvc_cli_view.h"
 
 using circuit_sim::CliCommandInterface;
-using circuit_sim::CliState;
 
 namespace circuit_sim
 {
 
-	class CliCommandPrintCommands : CliCommandInterface
+	class CliCommandPrintCommands : public CliCommandInterface
 	{
 	public:
-		CliCommandPrintCommands(const string &helpdesc, CliState *state) : CliCommandInterface(helpdesc), state_(state) {}
+		CliCommandPrintCommands(const string &helpdesc, class MvcCliView *view) : CliCommandInterface(helpdesc), view_(view) {}
 
-		virtual string execute(MvcController * const controller, const vector<string> &args);
+		virtual string execute(const vector<string> &args);
 
 	private:
-		CliState *state_;
-
+		class MvcCliView *view_;
 	};
 
 } // Namespace

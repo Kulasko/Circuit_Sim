@@ -4,27 +4,30 @@
 #include "cli_state.h"
 #include "mvc_controller.h"
 
-#include <memory>
-#include <unordered_set>
-
-using circuit_sim::CliState;
+// using circuit_sim::CliState;
 using circuit_sim::MvcController;
-
-using std::unordered_set;
-using std::weak_ptr;
 
 namespace circuit_sim
 {
+class CliState;
 
 class MvcCliView
 {
 public:
-	void SetController(const weak_ptr<MvcController> &controller);
+	MvcCliView();
+
+	CliState &GetCurrState();
+	void SetController(MvcController * const controller);
+
+	void Show(const char *begin);
 
 private:
-	weak_ptr<MvcController> controller_;
-	unordered_set<CliState> states_;
+	bool running_;
 
+	MvcController *controller_;
+	IndexedVector<string, CliState> states_;
+
+	string curr_status_;
 };
 
 } // Namespace

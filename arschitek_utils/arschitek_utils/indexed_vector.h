@@ -52,13 +52,13 @@ public:
 	{
 		return this->at(index);
 	}
-	size_t size()
+	size_t size() const
 	{
 		return this->data_.size();
 	}
 
 	// dirty indices for lazy index linking
-	void Add(const T2 &data, const T1 &index)
+	void Add(const T2 &&data, const T1 &index)
 	{
 		this->data_.push_back(data);
 		this->indices_.push_back(index);
